@@ -1,0 +1,29 @@
+name: Deploy my lambda function - python
+
+on:
+  push:
+    branches:
+     - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.7'
+      - name: Install all libraries
+        run: |
+          cd function
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -t
+      - name: Save artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: |
+            path/output/
+      
