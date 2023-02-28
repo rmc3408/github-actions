@@ -14,7 +14,8 @@ jobs:
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
           echo $GITHUB_TOKEN
-          echo "${{ github }}"
+          echo "${{ toJSON(github) }}"
+          echo "${{ secrets.GITHUB_TOKEN }}"
       - name: Clone git folder using checkout
         uses: actions/checkout@v3
       - name: List files after checkout
