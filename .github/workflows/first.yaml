@@ -7,9 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo a string
-        run: echo "Hello world"
-      - name: multiLine script
+        run: echo "Hello World"
+      - name: checking version of Tools
         run: |
           node -v
           npm -v
           aws --version
+      - name: Run python script
+        shell: python
+        run: |
+          import platform
+          print(platform.processor())
+
