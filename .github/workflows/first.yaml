@@ -19,3 +19,12 @@ jobs:
           import platform
           print(platform.system())
 
+  run-windows-command:
+    runs-on: windows-latest
+    steps:
+      - name: Location
+        run: Get-Location
+      - name: directory
+        run: pwd
+
+
