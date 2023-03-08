@@ -24,7 +24,7 @@ jobs:
           echo "Event name: $GITHUB_EVENT_NAME"
           echo "Github owner: ${{ github.repository_owner }}"
           echo "token secret: ${{ secrets.GITHUB_TOKEN }}"
-          echo "ENV-> workflow: ${{ WF_ENV }}"
+          echo "ENV-> workflow: ${WF_ENV}"
           echo "ENV-> Log: ${LG_ENV}"
           echo "ENV-> step: ${SP_ENV}"
   new-log-env:
