@@ -1,6 +1,6 @@
 name: Environment Workflow
 
-on: push
+# on: push
 env:
   WF_ENV: ${{ secrets.WF_ENV }}
 
@@ -29,8 +29,6 @@ jobs:
           echo "ENV-> step: ${SP_ENV}"
   new-log-env:
     runs-on: ubuntu-latest
-    env:
-      LG_ENV: avaliable inside this JOB 02 only
     steps:
       - name: Logging environment variables
         run: |
