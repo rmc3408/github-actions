@@ -18,11 +18,15 @@ jobs:
           echo "repo: $GITHUB_REPOSITORY"
           echo "workspace: $GITHUB_WORKSPACE"
           echo "token: $GITHUB_TOKEN"
+          echo "Sha: $GITHUB_SHA"
+          echo "REF: $GITHUB_REF"
+          echo "HOME: $HOME"
+          echo "Event name: $GITHUB_EVENT_NAME"
           echo "Github owner: ${{ github.repository_owner }}"
-          echo "${{ secrets.GITHUB_TOKEN }}"
-          echo "ENV-> workflow: ${ WF_ENV }"
-          echo "ENV-> Log: ${ LG_ENV }"
-          echo "ENV-> step: ${ SP_ENV }"
+          echo "token secret: ${{ secrets.GITHUB_TOKEN }}"
+          echo "ENV-> workflow: ${{ WF_ENV }}"
+          echo "ENV-> Log: ${LG_ENV}"
+          echo "ENV-> step: ${SP_ENV}"
   new-log-env:
     runs-on: ubuntu-latest
     env:
