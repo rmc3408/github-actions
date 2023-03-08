@@ -8,9 +8,13 @@ on:
     - cron: "30 16 15 12 *" # At 16:30 on December, 15
   push:
     tags:
-      - "fix"
+      - v1.*
     branches:
       - develop
+      - 'feature/*'
+      - '!testing'
+    paths:
+      - "**/*.ts"
   pull_request:
     types:
       - reopened
