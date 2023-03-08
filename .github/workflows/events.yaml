@@ -1,0 +1,26 @@
+name: Events
+
+# on: [push, pull_request]
+on:
+  push:
+    tags:
+      - "fix"
+    branches:
+      - develop
+  pull_request:
+    types:
+      - reopened
+      - opened
+      - closed
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Running test"
+      - name: checking version of Tools
+        run: |
+          node -v
+          npm -v
+          aws --version
