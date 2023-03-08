@@ -1,0 +1,34 @@
+name: Events
+
+# on: [push, pull_request]
+on:
+  repository_dispatch:
+    types: [build] # sending a POST request to API with event_type: build.
+  schedule:
+    - cron: "30 16 15 12 *" # At 16:30 on December, 15
+  push:
+    tags:
+      - v1.*
+    branches:
+      - develop
+      - 'feature/*'
+      - '!testing'
+    paths:
+      - "**/*.ts"
+  pull_request:
+    types:
+      - reopened
+      - opened
+      - closed
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Running test"
+      - name: checking version of Tools
+        run: |
+          node -v
+          npm -v
+          aws --version
