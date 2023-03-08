@@ -2,7 +2,7 @@ name: Environment Workflow
 
 on: push
 env:
-  WF_ENV: avaliable in workflow top-level
+  WF_ENV: ${{ secrets.WF_ENV }}
 
 jobs:
   log-env:
@@ -33,8 +33,6 @@ jobs:
       LG_ENV: avaliable inside this JOB 02 only
     steps:
       - name: Logging environment variables
-        env:
-          SP_ENV: Avaliable only this step
         run: |
           echo "actor: $GITHUB_ACTOR"
           echo "repo: $GITHUB_REPOSITORY"
