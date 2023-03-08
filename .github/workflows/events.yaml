@@ -2,6 +2,10 @@ name: Events
 
 # on: [push, pull_request]
 on:
+  repository_dispatch:
+    types: [build] # sending a POST request to API with event_type: build.
+  schedule:
+    - cron: "30 16 15 12 *" # At 16:30 on December, 15
   push:
     tags:
       - "fix"
