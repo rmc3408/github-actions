@@ -1,0 +1,31 @@
+name: Context from github
+
+on: push
+
+jobs:
+  dump_contexts_to_log:
+    runs-on: ubuntu-latest
+    env:
+      myNull: ${{ null }}
+      myBoolean: ${{ false }}
+      myIntegerNumber: ${{ 711 }}
+      myFloatNumber: ${{ -9.2 }}
+      myHexNumber: ${{ 0xff }}
+      myExponentialNumber: ${{ -2.99e-2 }}
+      myString: Mona the Octocat
+      myStringInBraces: ${{ 'It''s open source!' }}
+    steps:
+      - name: function contains
+        run: echo '${{ contains('Hello world', 'llo') }}'
+      - name: function format
+        run: echo '${{ format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat') }}'
+      - name: More function startsWith, endsWith, join, toJSON and fromJSON
+        if: ${{ github.event_name == 'push' }}
+        run: |
+          echo 'startsWith'
+          echo 'endsWith'
+          echo 'join'
+          echo 'toJSON or fromJSON'
+
+
+  
