@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: post a user
         run: |
-          "curl -X POST http://localhost:3001/api/users -H 'Content-type: application/json' -d '
+          "curl -X POST http://localhost:3001/api/user -H 'Content-type: application/json' -d '
           {"username": "raph", "address": "congo"}' "
       - name: Get users
         run: |
