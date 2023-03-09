@@ -18,7 +18,9 @@ jobs:
           git config --global user.name "rmc3408"
           git config --global init.defaultBranch main
           git fetch
-          git pull
+          git checkout main
+          git branch --set-upstream-to=origin/main
+          git pull origin/main main
           echo $RANDOM >> number.txt
           ls -a
           git add -a
