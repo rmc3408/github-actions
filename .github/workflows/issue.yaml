@@ -19,11 +19,10 @@ jobs:
           git config --global init.defaultBranch main
           git fetch
           git checkout main
-          git branch --set-upstream-to=origin/main
-          git pull origin/main main
+          git pull
           echo $RANDOM >> number.txt
           ls -a
-          git add -a
+          git add -A
           git commit -m "random-created"
           git push
       - name: Create issue using REST API
