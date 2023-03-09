@@ -21,9 +21,16 @@ jobs:
       - name: Get users
         run: |
           curl http://localhost:3001/api/users
-      - name: Load a insider docker container in steps
+      - name: Load a ECHO inside docker container in steps
         uses: docker://node:19-alpine3.16
         with:
-          entrypoint: 'usr/local/bin/node'
-          args: '-v'
+          entrypoint: bin/echo
+          args: 'Hello World'
+      - name: Load a node version inside docker container in steps
+        uses: docker://node:19-alpine3.16
+        with:
+          entrypoint: usr/local/bin/node
+          args: -v
+
+      
 
