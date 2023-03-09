@@ -9,7 +9,7 @@ jobs:
       - name: Getting git repository with checkout
         uses: actions/checkout@v3
       - name: Giving script permission
-        run: chmod +x ./script.sh
+        run: chmod +x script.sh
       - name: Load a node docker container and run Script in steps
         uses: docker://node:19-alpine3.16
         with:
