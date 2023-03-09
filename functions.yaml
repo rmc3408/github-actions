@@ -5,6 +5,7 @@ on: push
 jobs:
   dump_contexts_to_log:
     runs-on: ubuntu-latest
+    timeout-minutes: 2
     env:
       myNull: ${{ null }}
       myBoolean: ${{ false }}
@@ -17,6 +18,7 @@ jobs:
     steps:
       - name: function contains
         run: echo '${{ contains('Hello world', 'llo') }}'
+        continues-on-error: true
       - name: function format
         run: echo '${{ format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat') }}'
       - name: More function startsWith, endsWith, join, toJSON and fromJSON
@@ -26,7 +28,7 @@ jobs:
           echo 'endsWith'
           echo 'join'
           echo 'toJSON or fromJSON'
-      - name: run one failure
+      - name: Runs only on failure
         if: failure()
         run: echo ${{ toJSON(job) }}
         
