@@ -24,6 +24,6 @@ jobs:
       - name: Load a insider docker container in steps
         uses: docker://node:19-alpine3.16
         with:
-          entrypoint: ['/bin/echo', 'usr/local/bin/node']
-          args: ['Hello World', '-v']
+          entrypoint: '/bin/echo', 'usr/local/bin/node'
+          args: 'Hello World', '-v'
 
