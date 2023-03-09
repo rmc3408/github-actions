@@ -6,6 +6,8 @@ jobs:
   create_issue:
     runs-on: ubuntu-latest
     permissions:
+      pull-requests: write
+      repository-projects: write
       issues: write
     steps:
       - name: Create a GitHub repo and create a new file
