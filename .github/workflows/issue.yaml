@@ -26,7 +26,11 @@ jobs:
           ls -a
           git add -A
           git commit -m "random-created"
-          git push
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
       - name: Create issue using REST API
         run: |
           curl --request POST \
