@@ -1,0 +1,24 @@
+name: Node and MongoDB in Docker Container
+
+on: push
+
+jobs:
+  application-docker:
+    runs-on: ubuntu-latest
+    services:
+      application:
+        image: node:19-alpine3.16
+        ports:
+          - 3001:3000
+      mongo:
+        image: mongo
+        ports:
+          - "27017:27017"
+    steps:
+      - name: post a user
+        run: |
+          "curl -X POST http://localhost:3001/api/users -H 'Content-type: application/json' -d '
+          {"username": "raph", "address": "congo"}' "
+      - name: Get users
+        run: |
+          curl http://localhost:3001/api/users
