@@ -2,30 +2,30 @@ name: Shell Commands
 
 # on: [push]
 
-jobs:
-  run-shell-command:
-    runs-on: ubuntu-latest
-    needs: ["run-windows-command"]
-    steps:
-      - name: echo a string
-        run: echo "Hello World"
-      - name: checking version of Tools
-        run: |
-          node -v
-          npm -v
-          aws --version
-      - name: Run python script
-        shell: python
-        run: |
-          import platform
-          print(platform.system())
+# jobs:
+#   run-shell-command:
+#     runs-on: ubuntu-latest
+#     needs: ["run-windows-command"]
+#     steps:
+#       - name: echo a string
+#         run: echo "Hello World"
+#       - name: checking version of Tools
+#         run: |
+#           node -v
+#           npm -v
+#           aws --version
+#       - name: Run python script
+#         shell: python
+#         run: |
+#           import platform
+#           print(platform.system())
 
-  run-windows-command:
-    runs-on: windows-latest
-    steps:
-      - name: Location
-        run: Get-Location
-      - name: directory
-        run: pwd
+#   run-windows-command:
+#     runs-on: windows-latest
+#     steps:
+#       - name: Location
+#         run: Get-Location
+#       - name: directory
+#         run: pwd
 
 
