@@ -28,7 +28,7 @@ jobs:
           echo 'toJSON or fromJSON'
       - name: run one failure
         if: failure()
-        run: echo ${{ toJSON(jobs) }}
+        run: echo ${{ toJSON(job) }}
         
 
 
