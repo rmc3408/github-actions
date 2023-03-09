@@ -1,4 +1,4 @@
-name:Run script in Docker Container
+name: Run script in Docker Container
 
 on: push
 
