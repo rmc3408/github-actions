@@ -24,12 +24,12 @@ jobs:
       - name: Load a ECHO inside docker container in steps
         uses: docker://node:19-alpine3.16
         with:
-          entrypoint: bin/echo
+          entrypoint: /bin/echo
           args: 'Hello World'
       - name: Load a node version inside docker container in steps
         uses: docker://node:19-alpine3.16
         with:
-          entrypoint: usr/local/bin/node
+          entrypoint: /usr/local/bin/node
           args: -v
 
       
