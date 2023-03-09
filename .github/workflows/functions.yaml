@@ -26,6 +26,10 @@ jobs:
           echo 'endsWith'
           echo 'join'
           echo 'toJSON or fromJSON'
+      - name: run one failure
+        if: failure()
+        run: echo ${{ toJSON(jobs) }}
+        
 
 
   
