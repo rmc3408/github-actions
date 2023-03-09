@@ -11,6 +11,6 @@ jobs:
       - name: Get checkout action
         uses: actions/checkout@v3
       - name: Decrypting file
-        run: gpg --queit --batch --yes --decrypt --passphrase="$PHRASE_GPG" --output $HOME/secret.json data.json.gpg
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$PHRASE_GPG" --output $HOME/secret.json data.json.gpg
       - name: Print content
         run: cat $HOME/secret.json
