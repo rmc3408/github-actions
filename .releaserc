@@ -1,5 +1,5 @@
 {
-  "branches": ["develop"],
+  "branches": ["main"],
   "repositoryUrl": "https://github.com/rmc3408/github-actions",
   "plugins": [
     "@semantic-release/commit-analyzer",
