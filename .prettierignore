@@ -1,5 +1,7 @@
 /build
 /node_modules
 /.vercel
+/coverage
 /public
+/SampleWorkflows
 package-lock.json
