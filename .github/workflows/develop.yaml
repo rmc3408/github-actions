@@ -2,10 +2,11 @@ name: Pull request or Push in Develop branch
 
 on:
   pull_request:
-    branches: [develop]
+    branches: [develop, main]
   push:
     branches:
       - develop
+      - main
 
 jobs:
   building:
@@ -55,6 +56,11 @@ jobs:
         with:
           name: code-built
           path: build
+      - name: Create a versioning by semantic
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: $GITHUB_TOKEN
       - name: Deploy Project Artifacts to Vercel
         if: github.event_name == 'push'
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
