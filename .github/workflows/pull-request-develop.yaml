@@ -13,7 +13,7 @@ jobs:
       - name: selecting node version
         uses: actions/setup-node@v2
         with:
-          node-version: "16.x"
+          node-version: '16.x'
       - name: Install dependencies via NPM
         run: npm ci
       - name: Check formating via prettier
@@ -22,5 +22,3 @@ jobs:
         env:
           CI: true
         run: npm run test
-
-  
