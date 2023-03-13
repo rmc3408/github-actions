@@ -1,6 +1,6 @@
 name: Events
 
-# on: [push, pull_request]
+on: [push, pull_request]
 on:
   repository_dispatch:
     types: [build] # sending a POST request to API with event_type: build.

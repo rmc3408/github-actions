@@ -1,6 +1,6 @@
-name: Shell Commands
+name: Shell Commands in execution order
 
-# on: [push]
+on: [push]
 
 jobs:
   run-shell-command:
