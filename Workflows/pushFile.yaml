@@ -1,0 +1,33 @@
+name: Push a new github actions file in repository
+
+on: [ push ]
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+    permissions:
+      repository-projects: write
+      contents: write
+      packages: write
+    steps:
+      - name: Create a GitHub repo and create a new file
+        run: |
+          pwd
+          ls -a
+          git init
+          git remote add origin "https://rmc3408:${{ github.token }}@github.com/${{ github.repository }}.git"
+          git config --global user.email "rmc3408@protonmail.com"
+          git config --global user.name "rmc3408"
+          git config --global init.defaultBranch main
+          git fetch
+          git checkout main
+          git pull
+          echo $RANDOM >> number.txt
+          ls -a
+          git add -A
+          git commit -m "random-created"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
