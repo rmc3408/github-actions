@@ -60,7 +60,7 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: npx semantic-release
         env:
-          GITHUB_TOKEN: $GITHUB_TOKEN
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         if: github.event_name == 'push'
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
