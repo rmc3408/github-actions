@@ -17,6 +17,12 @@ jobs:
     steps:
       - name: Getting file from github via checkout action
         uses: actions/checkout@v3
+      - name: Cache file and node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
       - name: selecting node version
         uses: actions/setup-node@v2
         with:
