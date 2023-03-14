@@ -1,4 +1,4 @@
-![](https://github.com/rmc3408/github-actions/actions/workflows/develop.yml/badge.svg?branch=main)
+![](https://github.com/rmc3408/github-actions/workflows/develop.yaml/badge.svg?branch=main)
 
 # Courses
 <hr/>
